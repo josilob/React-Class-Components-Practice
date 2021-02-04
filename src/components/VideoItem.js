@@ -21,5 +21,3 @@ const VideoItem = ({ video, onVideoSelect }) => {
 };
 
 export default VideoItem;
-//video.snippet.title
-//
