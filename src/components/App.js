@@ -7,9 +7,16 @@ import VideoDetail from '../components/VideoDetail';
 class App extends React.Component {
 	state = { videos: [], selectedVideo: null };
 
+	componentDidMount() {
+		this.handleTermSubmit('feed');
+	}
+
 	handleTermSubmit = async (term) => {
 		const res = await youtube.get('/search', { params: { q: term } });
-		this.setState({ videos: res.data.items });
+		this.setState({
+			videos: res.data.items,
+			selectedVideo: res.data.items[0],
+		});
 		// console.log(res.data.items);
 	};
 
