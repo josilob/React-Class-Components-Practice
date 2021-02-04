@@ -14,7 +14,7 @@ class App extends React.Component {
 	};
 
 	onVideoSelect = (video) => {
-		console.log('clg from the app', video);
+		// console.log('clg from the app', video);
 		this.setState({ selectedVideo: video });
 	};
 
@@ -22,11 +22,19 @@ class App extends React.Component {
 		return (
 			<div className='ui container'>
 				<SearchBar onFormSubmit={this.handleTermSubmit} />
-				<VideoDetail video={this.state.selectedVideo} />
-				<VideoList
-					videos={this.state.videos}
-					onVideoSelect={this.onVideoSelect}
-				/>
+				<div className='ui grid'>
+					<div className='ui row'>
+						<div className='eleven wide column'>
+							<VideoDetail video={this.state.selectedVideo} />
+						</div>
+						<div className='five wide column'>
+							<VideoList
+								videos={this.state.videos}
+								onVideoSelect={this.onVideoSelect}
+							/>
+						</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
